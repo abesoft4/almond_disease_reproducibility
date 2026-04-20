@@ -1,0 +1,32 @@
+{
+  "image_loading": {
+    "color_mode": "RGB",
+    "target_size": [224, 224],
+    "dtype": "float32"
+  },
+  "inference_preprocessing": {
+    "rescale": "x / 255.0",
+    "backbone_specific": "efficientnet_v2.preprocess_input(x * 255.0)",
+    "augmentation_applied": false
+  },
+  "training_augmentation": {
+    "mild": [
+      "RandomFlip(horizontal)",
+      "RandomRotation(0.05)",
+      "RandomZoom(0.10)",
+      "RandomContrast(0.10, value_range=(0.0, 1.0))"
+    ],
+    "strong": [
+      "RandomFlip(horizontal_and_vertical)",
+      "RandomRotation(0.15)",
+      "RandomZoom(0.20)",
+      "RandomContrast(0.20, value_range=(0.0, 1.0))",
+      "RandomBrightness(0.15, value_range=(0.0, 1.0))",
+      "RandomTranslation(0.10, 0.10, fill_mode=reflect)"
+    ]
+  },
+  "notes": {
+    "inference": "Evaluation scripts disable augmentation and use the selected EfficientNetV2-B0 preprocessing path only.",
+    "source": "Values are taken from the manuscript and notebook workflow used to generate the selected model."
+  }
+}

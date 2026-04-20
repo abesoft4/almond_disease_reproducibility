@@ -1,0 +1,47 @@
+{
+  "package_name": "almond_disease_reproducibility",
+  "created_on": "2026-04-20",
+  "source_notebook": "Almond_Disease_Classification.ipynb",
+  "source_run": "artifacts/runs_20250903-123155",
+  "best_configuration": {
+    "tag": "05_efficientnetv2b0-ce-mild-do0p25",
+    "backbone": "EfficientNetV2-B0",
+    "loss": "cross-entropy",
+    "augmentation": "mild",
+    "dropout": 0.25,
+    "epochs": 12,
+    "val_macro_f1": 0.9941372871398926,
+    "val_accuracy": 0.9941691160202026,
+    "last_conv_layer": "top_conv"
+  },
+  "artifacts": {
+    "checkpoint": "model/best.keras",
+    "classes": "model/classes.json",
+    "grouped_split_plan": "splits/grouped_split_plan.json"
+  },
+  "temperature_scaling": {
+    "temperature": 0.615,
+    "fit_split": "validation",
+    "method": "softmax(log(p) / T)",
+    "probability_clip_eps": 1e-08,
+    "metrics_before_after": {
+      "ece": {
+        "before": 0.0364,
+        "after": 0.0252
+      },
+      "nll": {
+        "before": 0.0826,
+        "after": 0.0661
+      },
+      "brier": {
+        "before": 0.0399,
+        "after": 0.0389
+      }
+    }
+  },
+  "usage_notes": {
+    "calibration": "Apply temperature scaling to model probabilities for calibration analysis.",
+    "explainability": "Use the base checkpoint and last_conv_layer=top_conv for Grad-CAM and Integrated Gradients.",
+    "scope": "Package supports direct evaluation of the published checkpoint without retraining."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "python": "3.12.10",
+  "runtime_libraries": {
+    "tensorflow": "2.21.0",
+    "keras": "3.14.0",
+    "numpy": "2.4.4",
+    "h5py": "3.14.0",
+    "matplotlib": "3.10.8",
+    "pillow": "12.2.0",
+    "opencv_python_headless": "4.13.0.92"
+  },
+  "hardware": {
+    "training_workstation": {
+      "manufacturer": "Dell Inc.",
+      "model": "Precision 5820 Tower",
+      "operating_system": "Windows 10 Pro 64-bit (10.0, Build 19045)",
+      "cpu": "Intel(R) Xeon(R) W-2155 CPU @ 3.30GHz",
+      "memory_ram_mb": 32768,
+      "gpu": "NVIDIA Quadro P4000",
+      "display_memory_vram_mb": 8081,
+      "approx_total_graphics_memory_mb": 24301
+    },
+    "note": "Training hardware details were recorded from the workstation used for the experiments. The packaged evaluation scripts may still run on different hardware depending on the local environment."
+  },
+  "notebook_environment_note": "The notebook source contains environment-check cells and GPU detection logic. The reproducibility package is validated in the current project virtual environment listed above, while the training workstation details are recorded separately in the hardware section."
+}
