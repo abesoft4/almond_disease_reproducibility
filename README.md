@@ -29,7 +29,9 @@ It does not retrain models. The purpose is direct verification of the published 
 
 ## Grouped Validation Note
 
-The manuscript describes grouped plant-level validation operationalized through duplicate and near-duplicate grouping before fold assignment. The split file included here stores the exact image lists used per fold. It therefore reproduces the evaluation protocol used in the manuscript, even though the saved split file itself is expressed as file lists rather than as a separate plant-ID table.
+The grouped protocol is defined by connected duplicate/near-duplicate components, not by plant identifiers. The audit used exact 8 x 8 average-hash matches and cosine links (similarity at least 0.995) between ImageNet-pretrained MobileNetV2 global-average-pooled features. The split file stores the exact image lists used by the reported grouped runs and is the canonical split definition for reproducing those results.
+
+The audit scanned 1,717 images, whereas the archived split plan contains 1,660 distinct paths across its five validation lists. Accordingly, the reported grouped estimates apply to that archived 1,660-image analysis set. No plant-ID table was available, and the split must not be described as plant-level validation. The original 12-configuration backbone/loss/augmentation grid used a separate seeded random 80/20 hold-out and is not reproduced by this grouped split file.
 
 ## Preprocessing Used For Inference
 
